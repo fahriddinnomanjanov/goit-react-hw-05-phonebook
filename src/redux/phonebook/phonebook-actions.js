@@ -1,8 +1,8 @@
-import shortid from 'shortid'
-import types from './phonebook-types'
+import shortid from 'shortid';
+// import types from './phonebook-types'
 import { createAction } from '@reduxjs/toolkit';
 
-const addTodo = createAction(types.ADD, ({ name, number }) => ({
+const addContacts = createAction('phonebook/add', ({ name, number }) => ({
         payload: {
         id: shortid.generate(),
         name,
@@ -19,18 +19,17 @@ const addTodo = createAction(types.ADD, ({ name, number }) => ({
 //     }
 // })
 
-const deleteContacts = createAction(types.DELETE)
+const deleteContacts = createAction('phonebook/delete')
 
 // const deleteContacts = (index) => ({
 //     type: types.DELETE,
 //     payload: index
 // })
 
-const changeFilter = createAction(types.HANDLE_FILTER)
+const changeFilter = createAction('phonebook/handleFilter')
 // const changeFilter = value => ({
 //     type: types.HANDLE_FILTER,
 //     payload: value
 // })
 
-
-export default { addTodo, deleteContacts, changeFilter };
+export default { addContacts, deleteContacts, changeFilter };
